@@ -6,8 +6,8 @@ def calculate_time_overlap(start_interval_1, end_interval_1, start_interval_2, e
   if end_interval_1 <= start_interval_2 or end_interval_2 <= start_interval_1:
     return 0 
   else:
-    start_overlap = min(start_interval_1, start_interval_2)
-    end_overlap = max(end_interval_1, end_interval_2)
+    start_overlap = max(start_interval_1, start_interval_2)
+    end_overlap = min(end_interval_1, end_interval_2)
     return end_overlap - start_overlap
 
 calculate_time_overlap_udf = udf(calculate_time_overlap, IntegerType())
@@ -19,7 +19,6 @@ def compute_heatmap(cows_bff: DataFrame):
         .withColumnRenamed('meal_end','meal_end1')\
         .withColumnRenamed('date','date1')\
         .select('cow1','meal_start1','meal_end1','date1')
-
 
     cow2 = cows_bff\
         .withColumnRenamed('cow_name','cow2')\
@@ -37,7 +36,7 @@ def compute_heatmap(cows_bff: DataFrame):
 
     df = df.groupBy('cow1', 'cow2').agg(sum('overlap').alias('total_overlap'), countDistinct('date1').alias('distinct_days'))
     df = df\
-        .withColumn('avg_overlap', df.total_overlap / df.distinct_days)\
+        .withColumn('avg_overlap', col('total_overlap') / col('distinct_days'))\
         .select('cow1','cow2','avg_overlap')\
         .withColumnRenamed('avg_overlap','distance')\
         .sort(col('cow1').asc(), col('cow2').asc())
