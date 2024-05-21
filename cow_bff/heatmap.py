@@ -44,6 +44,6 @@ def compute_heatmap(cows_bff: DataFrame):
 
     return df
 
-# start_interval_1, end_interval_1 = 32725, 34083 # Muffin
-# start_interval_2, end_interval_2 = 33005, 33969 # Daisy
+# start_interval_1, end_interval_1 = 0, 20 
+# start_interval_2, end_interval_2 = 10, 30 
 # calculate_time_overlap(start_interval_1, end_interval_1, start_interval_2, end_interval_2)
