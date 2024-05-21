@@ -6,8 +6,8 @@ def calculate_time_overlap(start_interval_1, end_interval_1, start_interval_2, e
   if end_interval_1 <= start_interval_2 or end_interval_2 <= start_interval_1:
     return 0 
   else:
-    start_overlap = max(start_interval_1, start_interval_2)
-    end_overlap = min(end_interval_1, end_interval_2)
+    start_overlap = min(start_interval_1, start_interval_2)
+    end_overlap = max(end_interval_1, end_interval_2)
     return end_overlap - start_overlap
 
 calculate_time_overlap_udf = udf(calculate_time_overlap, IntegerType())
