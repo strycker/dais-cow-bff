@@ -1,6 +1,0 @@
-bundle:
-  name: cow_bff
-
-workspace:
-  host: https://e2-dogfood.staging.cloud.databricks.com/
-  root_path: /Users/${workspace.current_user.userName}/dais-cow-bff
