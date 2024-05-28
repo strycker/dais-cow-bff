@@ -2,5 +2,5 @@ bundle:
   name: cow_bff
 
 workspace:
-  host: https://e2-dogfood.staging.cloud.databricks.com/
+  host: https://adb-1966697730403610.10.azuredatabricks.net/
   root_path: /Users/${workspace.current_user.userName}/dais-cow-bff
