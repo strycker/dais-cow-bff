@@ -11,11 +11,11 @@ on:
 jobs:
   unit-tests:
     name: "Unit tests"
-    environment: Staging
+    environment: Prod
     runs-on: ubuntu-latest
     env:
-      DATABRICKS_CLUSTER_ID: ${{ vars.DATABRICKS_CLUSTER_ID }}
-      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_CLUSTER_ID: ${{ vars.DATABRICKS_PROD_CLUSTER_ID }}
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_PROD_HOST }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
