@@ -3,4 +3,3 @@ bundle:
 
 workspace:
   host: https://adb-1966697730403610.10.azuredatabricks.net/
-  root_path: /Users/${workspace.current_user.userName}/dais-cow-bff

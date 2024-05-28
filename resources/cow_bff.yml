@@ -27,7 +27,7 @@ resources:
           job_cluster_key: Job_cluster
           notification_settings: {}
           notebook_task:
-            notebook_path: ../notebooks/Cow BFF
+            notebook_path: ../notebooks/Cow BFF.ipynb
             source: WORKSPACE
           run_if: ALL_SUCCESS
           webhook_notifications: {}
