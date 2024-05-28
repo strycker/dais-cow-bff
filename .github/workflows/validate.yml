@@ -11,6 +11,7 @@ on:
       - synchronize
     branches:
       - main
+      - dais24-main
 
 jobs:
   unit-tests:
