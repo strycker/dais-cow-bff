@@ -12,13 +12,13 @@ environments:
   qa:
     resources:
       jobs:
-        cow_bff:
+        daily_report:
           name: "[${bundle.environment}] Cow BFF report"
 
   production:
     resources:
       jobs:
-        cow_bff:
+        daily_report:
           name: "[${bundle.environment}] Cow BFF report"
           job_clusters:
             - job_cluster_key: daily_report
