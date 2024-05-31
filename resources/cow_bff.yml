@@ -12,4 +12,4 @@ resources:
         - task_key: cow_report
           job_cluster_key: cow_cluster
           notebook_task:
-            notebook_path: "notebooks/Cow BFF.ipynb"
+            notebook_path: "../notebooks/Cow BFF.ipynb"
