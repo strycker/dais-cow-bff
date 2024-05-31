@@ -2,21 +2,11 @@ from pyspark.sql.functions import udf, countDistinct, sum, col
 from pyspark.sql.types import IntegerType
 from pyspark.sql.dataframe import DataFrame
 
-# calculate_time_overlap = lambda start_interval_1, end_interval_1, start_interval_2, end_interval_2: \
-#     0 if end_interval_1 <= start_interval_2 or end_interval_2 <= start_interval_1 else \
-#     min(end_interval_1, end_interval_2) - max(start_interval_1, start_interval_2) 
+calculate_time_overlap = lambda start_interval_1, end_interval_1, start_interval_2, end_interval_2: \
+    0 if end_interval_1 <= start_interval_2 or end_interval_2 <= start_interval_1 else \
+    min(end_interval_1, end_interval_2) - max(start_interval_1, start_interval_2) 
 
-def calculate_time_overlap(start_interval_1, end_interval_1, start_interval_2, end_interval_2):
-  if end_interval_1 <= start_interval_2 or end_interval_2 <= start_interval_1:
-    return 0 
-  else:
-    start_overlap = max(start_interval_1, start_interval_2)
-    end_overlap = min(end_interval_1, end_interval_2)
-    return end_overlap - start_overlap
-
-
-
-calculate_time_overlap_udf = udf(lambda start_interval_1, end_interval_1, start_interval_2, end_interval_2: calculate_time_overlap(start_interval_1, end_interval_1, start_interval_2, end_interval_2), IntegerType())
+calculate_time_overlap_udf = udf(calculate_time_overlap, IntegerType())
 
 def compute_heatmap(cows_bff: DataFrame):
     cow1 = cows_bff\
@@ -50,7 +40,7 @@ def compute_heatmap(cows_bff: DataFrame):
 
     return df
 
-# make it so that we can also run the module using DBConnect. This is needed for unit testing from a Github action pipeline
+# make it so that we can also run the module using DBConnect
 if __name__ == "__main__":
     from databricks.connect import DatabricksSession
     spark = DatabricksSession.builder.getOrCreate()
