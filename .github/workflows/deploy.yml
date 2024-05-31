@@ -1,12 +1,13 @@
 name: Cow BFF (CD)
 
-concurrency: prod_environment
+concurrency: staging_environment
 
 on:
   push:
     branches:
       # Set your base branch name here
       - main
+      - dais24-main
 
 jobs:
   unit-tests:
