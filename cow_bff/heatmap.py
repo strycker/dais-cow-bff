@@ -46,3 +46,12 @@ def compute_heatmap(cows_bff: DataFrame):
 # start_interval_1, end_interval_1 = 0, 20 
 # start_interval_2, end_interval_2 = 10, 30 
 # calculate_time_overlap(start_interval_1, end_interval_1, start_interval_2, end_interval_2)
+
+# make it so that we can also run the module using DBConnect
+if __name__ == "__main__":
+    from databricks.connect import DatabricksSession
+    spark = DatabricksSession.builder.getOrCreate()
+
+    cows_bff = spark.read.table("db.cows_bff")
+    df = compute_heatmap(cows_bff)
+    df.show()
