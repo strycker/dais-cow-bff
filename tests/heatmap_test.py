@@ -16,7 +16,6 @@ def spark_session():
     yield spark
 
 
-
 @pytest.fixture(scope="session")
 def cow_bff(spark_session):
     schema = StructType([ \

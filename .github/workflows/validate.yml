@@ -1,4 +1,4 @@
-name: Cow BFF (CI)
+name: Cow BFF (validate)
 
 concurrency: staging_environment
 
@@ -11,7 +11,6 @@ on:
       - synchronize
     branches:
       - main
-      - dais24-main
 
 jobs:
   unit-tests:
@@ -48,6 +47,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: databricks/setup-cli@main
       - name: Deploy bundle
-        run: databricks bundle deploy --target qa
+        run: databricks bundle deploy -e qa
       - name: Run notebook
-        run: databricks bundle --target qa run daily_report
+        run: databricks bundle -e qa run daily_report
