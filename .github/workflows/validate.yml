@@ -1,4 +1,4 @@
-name: Cow BFF (CI)
+name: Cow BFF (validate)
 
 concurrency: staging_environment
 
@@ -50,4 +50,4 @@ jobs:
       - name: Deploy bundle
         run: databricks bundle deploy -e qa
       - name: Run notebook
-        run: databricks bundle -e qa run cow_bff
+        run: databricks bundle -e qa run daily_report

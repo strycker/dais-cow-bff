@@ -1,11 +1,12 @@
 name: Cow BFF (CD)
 
-concurrency: prod_environment
+concurrency: staging_environment
 
 on:
   push:
     branches:
       # Set your base branch name here
+      - main
       - dais24-main
 
 jobs:
@@ -43,6 +44,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: databricks/setup-cli@main
       - name: Deploy bundle
-        run: databricks bundle deploy -e qa
+        run: databricks bundle deploy --target qa
       - name: Run notebook
-        run: databricks bundle -e qa run daily_report
+        run: databricks bundle --target qa run daily_report
