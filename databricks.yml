@@ -25,7 +25,7 @@ environments:
           job_clusters:
             - job_cluster_key: daily_report
               new_cluster:
-                spark_version: 15.2.x-scala2.12
+                spark_version: 14.3.x-scala2.12
                 node_type_id: Standard_DS3_v2
                 autoscale:
                   max_workers: 10

@@ -40,7 +40,7 @@ def compute_heatmap(cows_bff: DataFrame):
 
     return df
 
-# make it so that we can also run the module using DBConnect
+# make it so that we can also run the module using DBConnect. This is needed for unit testing from a Github action pipeline
 if __name__ == "__main__":
     from databricks.connect import DatabricksSession
     spark = DatabricksSession.builder.getOrCreate()
