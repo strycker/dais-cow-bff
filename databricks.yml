@@ -2,7 +2,7 @@ bundle:
   name: cow_bff
 
 workspace:
-  host: https://adb-1966697730403610.10.azuredatabricks.net/
+  host: ${workspace.host}
 
 include:
   - resources/*.yml
@@ -15,13 +15,13 @@ environments:
     resources:
       jobs:
         daily_report:
-          name: "[${bundle.environment}] Cow BFF report"
+          name: "[${bundle.target}] Cow BFF report"
 
   production:
     resources:
       jobs:
         daily_report:
-          name: "[${bundle.environment}] Cow BFF report"
+          name: "[${bundle.target}] Cow BFF report"
           job_clusters:
             - job_cluster_key: daily_report
               new_cluster:

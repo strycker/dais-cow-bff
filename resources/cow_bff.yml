@@ -1,7 +1,7 @@
 resources:
   jobs:
     daily_report:
-      name: "[${bundle.environment} - ${workspace.current_user.userName}] Cow BFF report"
+      name: "[${bundle.target} - ${workspace.current_user.userName}] Cow BFF report"
       job_clusters:
         - job_cluster_key: cow_cluster
           new_cluster:
