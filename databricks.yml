@@ -1,23 +1,27 @@
 bundle:
   name: cow_bff
 
-workspace:
-  host: ${workspace.host}
-
 include:
   - resources/*.yml
 
-environments:
+targets:
   development:
     default: true
+    workspace:
+      host: https://adb-1966697730403610.10.azuredatabricks.net/
+
 
   qa:
+    workspace:
+      host: https://adb-1966697730403610.10.azuredatabricks.net/ # can be different
     resources:
       jobs:
         daily_report:
           name: "[${bundle.target}] Cow BFF report"
 
   production:
+    workspace:
+      host: https://adb-1966697730403610.10.azuredatabricks.net/ # can be different
     resources:
       jobs:
         daily_report:
