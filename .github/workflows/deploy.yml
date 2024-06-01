@@ -1,6 +1,6 @@
 name: Cow BFF (CD)
 
-concurrency: staging_environment
+concurrency: staging_environment # this usually uses a prod environment different from staging; here we illustrate using the same env
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
 jobs:
   unit-tests:
     name: "Unit tests"
-    environment: Staging
+    environment: Staging # this usually uses a prod environment different from staging; here we illustrate using the same env
     runs-on: ubuntu-latest
     env:
       DATABRICKS_CLUSTER_ID: ${{ vars.DATABRICKS_CLUSTER_ID }}
