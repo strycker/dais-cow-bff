@@ -1,18 +1,17 @@
 name: Cow BFF (CD)
 
-concurrency: staging_environment
+concurrency: prod_environment 
 
 on:
   push:
     branches:
       # Set your base branch name here
-      - main
       - dais24-main
 
 jobs:
   unit-tests:
     name: "Unit tests"
-    environment: Staging
+    environment: Prod
     runs-on: ubuntu-latest
     env:
       DATABRICKS_CLUSTER_ID: ${{ vars.DATABRICKS_CLUSTER_ID }}
@@ -33,7 +32,7 @@ jobs:
 
   deploy:
     name: "Deploy bundle and run notebook"
-    environment: Staging
+    environment: Prod
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -44,6 +43,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: databricks/setup-cli@main
       - name: Deploy bundle
-        run: databricks bundle deploy --target qa
+        run: databricks bundle deploy --target production
       - name: Run notebook
-        run: databricks bundle --target qa run daily_report
+        run: databricks bundle --target production run daily_report
