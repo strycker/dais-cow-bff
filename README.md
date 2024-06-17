@@ -8,7 +8,7 @@ This project has been used for the "[Path to Production: Databricks Project CICD
 
 For the demo at DAIS 2024, use the `dais24-main` branch for the complete code and the `dais24-stageX` branches for snapshots. For the demo at DAIS 2023, see the `main` branch for the complete code and the `stageX` branches for snapshots 
 
-The DAIS 2024 Video will be linked here after the event.
+[![Youtube](images/video2.jpeg)](https://www.youtube.com/watch?v=DMwilNpDCiQ)
 
 [![Youtube](images/video.png)](https://www.youtube.com/watch?v=-mtwFb9Dyy0)
 
