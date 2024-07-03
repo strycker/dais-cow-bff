@@ -6,7 +6,7 @@ This is a sample data engineering project that tries to answer the question if c
 
 This project has been used for the "[Path to Production: Databricks Project CICD FOR Seamless Inner to Outer Dev Loops](https://www.databricks.com/dataaisummit/session/path-production-databricks-project-cicd-seamless-inner-outer-dev-loops)" talk at DATA+AI Summit 2024 and the "[Bridging the Production Gap: Develop and Deploy Code Easily With IDEs](https://www.databricks.com/dataaisummit/session/bridging-production-gap-develop-and-deploy-code-easily-ides/)" talk at DATA+AI Summit 2023.
 
-For the demo at DAIS 2024, use the `dais24-main` branch for the complete code and the `dais24-stageX` branches for snapshots. We will update with the minimum version of Databricks CLI for deploying DAB from a web terminal in the Workspace.
+For the demo at DAIS 2024, use the `dais24-main` branch for the complete code and the `dais24-stageX` branches for snapshots. Please use **Databricks CLI v0.223.0+** to deploy DAB from a web terminal in the Workspace.
 
 [![Youtube](images/video2.jpeg)](https://www.youtube.com/watch?v=DMwilNpDCiQ)
 
