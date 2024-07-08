@@ -5,6 +5,11 @@ include:
   - resources/*.yml
 
 targets:
+
+  matchengine:
+    workspace:
+      host: https://analytics-p2dsci-dms-me-us.cloud.databricks.com/
+
   development:
     default: true
     workspace:
